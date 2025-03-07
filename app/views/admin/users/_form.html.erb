@@ -1,0 +1,36 @@
+<%= form_with(model: @user, url: (@user.new_record? ? admin_users_path : admin_user_path(@user)), local: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>Des erreurs sont survenues :</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select(['user', 'admin'], @user.role), { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit (@user.new_record? ? "Créer l'utilisateur" : "Mettre à jour l'utilisateur"), class: 'btn btn-primary' %>
+  </div>
+<% end %>

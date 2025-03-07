@@ -1,0 +1,21 @@
+<h1>Modifier le Statut</h1>
+
+<%= form_with model: @status, url: admin_status_path(@status), method: :patch, local: true do |form| %>
+  <% if @status.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @status.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, 'Nom' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <%= form.submit 'Mettre à jour', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Retour', admin_statuses_path, class: 'btn btn-secondary' %>

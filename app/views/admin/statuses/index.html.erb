@@ -1,0 +1,23 @@
+<h1>Liste des statuts</h1>
+
+<%= link_to 'Nouveau Statut', new_admin_status_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= status.title %></td>
+        <td>
+          <%= link_to 'Editer', edit_admin_status_path(status), class: 'btn btn-warning' %>
+          <%= button_to 'Supprimer', admin_status_path(status), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<h1>Liste des priorités</h1>
+
+<%= link_to 'Nouvelle Priorité', new_admin_priority_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Couleur</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @priorities.each do |priority| %>
+      <tr>
+        <td><%= priority.title %></td>
+        <td><span class="badge" style="background-color: <%= priority.color %>">
+  <%= priority.color %></span></td>
+        <td>
+          <%= link_to 'Editer', edit_admin_priority_path(priority), class: 'btn btn-warning' %>
+          <%= button_to 'Supprimer', admin_priority_path(priority), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

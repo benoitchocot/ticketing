@@ -1,0 +1,18 @@
+<h1><%= @ticket.title %></h1>
+<p><%= @ticket.description %></p>
+<p>Priorité: <%= @ticket.priority.title %></p>
+<p>Statut: <%= @ticket.status.title %></p>
+
+
+<% if current_user.admin? %>
+<!-- Affichage des utilisateurs associés -->
+<p>Utilisateurs:
+  <% @ticket.users.each do |user| %>
+    <%= user.email %>
+    <% # Si tu veux afficher plus d'infos comme le nom ou autre, tu peux l'ajouter ici %>
+  <% end %>
+</p>
+<% end %>
+
+<%= link_to "Modifier", edit_ticket_path(@ticket), class: "btn btn-warning" %>
+<%= link_to "Retour", tickets_path, class: "btn btn-secondary" %>

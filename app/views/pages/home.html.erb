@@ -1,0 +1,13 @@
+<h1 class="text-center">Bienvenue sur Ticketing App</h1>
+<p class="text-center">Gérez vos tickets efficacement.</p>
+
+<% if user_signed_in? %>
+  <p class="text-center">Bonjour <%= current_user.email %> !</p>
+  <div class="text-center">
+  </div>
+<% else %>
+  <div class="text-center">
+    <%= link_to 'Se connecter', new_user_session_path, class: "btn btn-success" %>
+    <%= link_to 'S\'inscrire', new_user_registration_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<h1>Modifier la Priorité</h1>
+
+<%= form_with model: @priority, url: admin_priority_path(@priority), method: :patch, local: true do |form| %>
+  <% if @priority.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @priority.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, 'Nom' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :color, 'Couleur' %>
+    <%= form.color_field :color, class: 'form-control' %>
+  </div>
+
+  <%= form.submit 'Mettre à jour', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Retour', admin_priorities_path, class: 'btn btn-secondary' %>
