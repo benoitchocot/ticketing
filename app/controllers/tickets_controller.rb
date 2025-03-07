@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket créé avec succès.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class TicketsController < ApplicationController
     if @ticket.update(ticket_params)
       redirect_to @ticket, notice: 'Ticket mis à jour avec succès.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

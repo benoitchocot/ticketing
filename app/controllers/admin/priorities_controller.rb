@@ -14,7 +14,7 @@ class Admin::PrioritiesController < ApplicationController
     if @priority.save
       redirect_to admin_priorities_path, notice: 'Priorité créée avec succès.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +25,7 @@ class Admin::PrioritiesController < ApplicationController
     if @priority.update(priority_params)
       redirect_to admin_priorities_path, notice: 'Priorité mise à jour avec succès.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

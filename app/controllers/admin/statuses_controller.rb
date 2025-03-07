@@ -14,7 +14,7 @@ class Admin::StatusesController < ApplicationController
     if @status.save
       redirect_to admin_statuses_path, notice: 'Statut créé avec succès.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +25,7 @@ class Admin::StatusesController < ApplicationController
     if @status.update(status_params)
       redirect_to admin_statuses_path, notice: 'Statut mis à jour avec succès.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

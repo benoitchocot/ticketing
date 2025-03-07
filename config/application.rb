@@ -9,9 +9,9 @@ Bundler.require(*Rails.groups)
 module Ticketing
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.i18n.default_locale = :fr
     config.load_defaults 8.0
-
+    config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
+    config.i18n.default_locale = :fr
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
