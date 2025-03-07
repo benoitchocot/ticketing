@@ -1,2 +1,0 @@
-# ticketing
-Ruby Ticketing app
