@@ -7,7 +7,8 @@
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-
-  <%= form.submit 'Créer', class: 'btn btn-primary' %>
-<% end %>
-<%= link_to 'Retour', admin_statuses_path, class: 'btn btn-secondary' %>
+  <div class="form-group">
+    <%= form.submit 'Créer', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Retour', admin_statuses_path, class: 'btn btn-secondary' %>
+  </div>

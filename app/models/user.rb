@@ -2,8 +2,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :tickets
 
   validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
   validates :role, presence: true
     # Méthode pour autoriser la recherche sur certains attributs
     def self.ransackable_attributes(auth_object = nil)

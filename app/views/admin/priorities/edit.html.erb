@@ -21,6 +21,8 @@
     <%= form.color_field :color, class: 'form-control' %>
   </div>
 
-  <%= form.submit 'Mettre à jour', class: 'btn btn-primary' %>
-<% end %>
-<%= link_to 'Retour', admin_priorities_path, class: 'btn btn-secondary' %>
+  <div class="form-group">
+    <%= form.submit 'Mettre à jour', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Retour', admin_priorities_path, class: 'btn btn-secondary' %>
+  </div>

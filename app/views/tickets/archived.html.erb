@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Titre</th>
-      <th>Description</th>
       <th>Priorité</th>
       <th>Statut</th>
       <th>Date d'archivage</th>
@@ -14,7 +13,6 @@
     <% @tickets.each do |ticket| %> <!-- boucle sur la collection de tickets -->
       <tr>
         <td><%= ticket.title %></td>
-        <td><%= ticket.description.body %></td>
         <td><%= ticket.priority&.title || 'Non défini' %></td> <!-- Utilisation de &. pour éviter une erreur si priority est nil -->
         <td><%= ticket.status&.title || 'Non défini' %></td> <!-- idem pour status -->
         <td><%= l(ticket.deleted_at, format: :long) %></td>

@@ -2,7 +2,7 @@
 priorities = [
   { title: 'Critique', color: '#FF0000' },
   { title: 'Haute', color: '#FFA500' },
-  { title: 'Moyenne', color: '#FFFF00' },
+  { title: 'Moyenne', color: '#EEE8AA' },
   { title: 'Basse', color: '#008000' },
   { title: 'Très basse', color: '#0000FF' }
 ]
