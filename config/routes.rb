@@ -23,5 +23,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
-  resources :tickets
+
+  resources :tickets do
+    member do
+      patch :soft_delete
+      patch :restore
+    end
+
+    collection do
+      get :archived
+    end
+  end
+
 end

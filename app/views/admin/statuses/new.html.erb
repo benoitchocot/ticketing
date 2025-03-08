@@ -1,15 +1,6 @@
 <h1>Nouveau statut</h1>
 
 <%= form_with model: @status, url: admin_statuses_path, local: true do |form| %>
-  <% if @status.errors.any? %>
-    <div class="alert alert-danger">
-      <ul>
-        <% @status.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="form-group">
     <%= form.label :title, 'Nom' %>

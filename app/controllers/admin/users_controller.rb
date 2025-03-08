@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_users_path, notice: "Utilisateur créé avec succès."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

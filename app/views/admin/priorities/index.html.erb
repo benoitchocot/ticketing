@@ -16,9 +16,9 @@
         <td><%= priority.title %></td>
         <td><span class="badge" style="background-color: <%= priority.color %>">
   <%= priority.color %></span></td>
-        <td>
-          <%= link_to 'Editer', edit_admin_priority_path(priority), class: 'btn btn-warning' %>
-          <%= button_to 'Supprimer', admin_priority_path(priority), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        <td class="d-flex">
+          <%= link_to 'Editer', edit_admin_priority_path(priority), class: 'btn btn-warning m-1' %>
+          <%= button_to 'Supprimer', admin_priority_path(priority), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger m-1' %>
         </td>
       </tr>
     <% end %>

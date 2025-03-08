@@ -1,15 +1,7 @@
 <h1>Nouvelle Priorité</h1>
 
 <%= form_with model: @priority, url: admin_priorities_path, local: true do |form| %>
-  <% if @priority.errors.any? %>
-    <div class="alert alert-danger">
-      <ul>
-        <% @priority.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
 
   <div class="form-group">
     <%= form.label :title, 'Nom' %>
