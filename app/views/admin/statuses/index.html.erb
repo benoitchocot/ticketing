@@ -13,9 +13,9 @@
     <% @statuses.each do |status| %>
       <tr>
         <td><%= status.title %></td>
-        <td>
-          <%= link_to 'Editer', edit_admin_status_path(status), class: 'btn btn-warning' %>
-          <%= button_to 'Supprimer', admin_status_path(status), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        <td class="d-flex">
+          <%= link_to 'Editer', edit_admin_status_path(status), class: 'btn btn-warning m-1' %>
+          <%= button_to 'Supprimer', admin_status_path(status), method: :delete, data: { turbo_confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger m-1' %>
         </td>
       </tr>
     <% end %>

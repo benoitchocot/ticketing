@@ -10,6 +10,7 @@ class Ticket < ApplicationRecord
   validates :description, presence: true
   validates :priority_id, presence: true
   validates :status_id, presence: true
+  validate :end_date_cannot_be_in_the_past
 
   def self.ransackable_attributes(auth_object = nil)
     ["id", "title", "description", "created_at", "updated_at", "user_id"]
@@ -20,4 +21,10 @@ class Ticket < ApplicationRecord
     ["priority", "status", "users"]
   end
 
+  def end_date_cannot_be_in_the_past
+    if end_date.present? && end_date < Date.today
+      errors.add(:end_date, "ne peut pas être dans le passé")
+    end
+  end
+  
 end

@@ -2,6 +2,7 @@
 <p><%= @ticket.description.body %></p>
 <p>Priorité: <%= @ticket.priority.title %></p>
 <p>Statut: <%= @ticket.status.title %></p>
+<p><strong>Date de fin :</strong> <%= @ticket.end_date.present? ? l(@ticket.end_date, format: :long) : "Non définie" %></p>
 
 
 <% if current_user.admin? %>
