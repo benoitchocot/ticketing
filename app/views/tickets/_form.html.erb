@@ -20,11 +20,12 @@
     <%= form.select :status_id, Status.all.map { |s| [s.title, s.id] }, { include_blank: 'Sélectionnez le statut' }, class: 'form-control' %>
   </div>
 
+<% if current_user.admin? %>
   <div class="form-group">
     <%= form.label :user_ids, 'Utilisateurs' %>
     <%= form.collection_select :user_ids, User.all, :id, :email, { include_blank: 'Sélectionnez des utilisateurs' }, { multiple: true, class: 'form-control' } %>
   </div>
-
+<% end %>
   <div class="form-group">
     <%= form.label :end_date, 'Date de fin' %>
     <%= form.datetime_local_field :end_date, class: 'form-control' %>

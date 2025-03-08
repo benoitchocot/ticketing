@@ -47,11 +47,20 @@ puts "Admin créé: #{admin.email}"
   5.times do
     ticket = Ticket.create!(
       title: "Ticket ##{rand(1000..9999)}",
-      description: "Description aléatoire du ticket",
-      priority_id: Priority.all.sample.id, # Priorité aléatoire
+      priority_id: Priority.all.sample.id,  # Priorité aléatoire
       status_id: Status.all.sample.id      # Statut aléatoire
     )
     puts "Ticket créé: #{ticket.title}"
+
+    # Créer la description en tant que texte enrichi (ActionText)
+    ticket.description = ActionText::RichText.create!(
+      name: 'description',
+      body: "Description enrichie pour le ticket ##{ticket.id}",
+      record_type: 'Ticket',
+      record_id: ticket.id
+    )
+    ticket.save!  # Sauvegarde le ticket après avoir ajouté la description
+    puts "Description enrichie créée pour le ticket ##{ticket.id}"
 
     # Associer cet utilisateur au ticket (relation many-to-many)
     ticket.users << user

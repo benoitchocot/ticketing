@@ -7,10 +7,24 @@ class Ticket < ApplicationRecord
   belongs_to :status
 
   validates :title, presence: true
-  validates :description, presence: true
   validates :priority_id, presence: true
   validates :status_id, presence: true
   validate :end_date_cannot_be_in_the_past
+
+  scope :active, -> { where(deleted_at: nil) } # Filtre les tickets non supprimés.
+
+    # Méthode pour faire un soft delete
+    def soft_delete
+      update(deleted_at: Time.current)
+    end
+  
+    # Méthode pour restaurer un ticket
+    def restore
+      update(deleted_at: nil)
+    end
+  
+    # Scope pour les tickets archivés
+    scope :archived, -> { where.not(deleted_at: nil) }
 
   def self.ransackable_attributes(auth_object = nil)
     ["id", "title", "description", "created_at", "updated_at", "user_id"]

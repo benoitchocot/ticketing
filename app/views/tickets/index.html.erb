@@ -3,8 +3,10 @@
 <% if current_user.admin? %>
   <div class="mb-3">
     <%= link_to 'Créer un ticket', new_ticket_path, class: 'btn btn-success' %>
+    <%= link_to 'Archives des tickets', archived_tickets_path, class: 'btn btn-secondary ml-2' %>
   </div>
 <% end %>
+
 
 <%= search_form_for @q, url: tickets_path, method: :get do |f| %>
   <div class="row">
@@ -57,7 +59,7 @@
         <td class="d-flex">
           <%= link_to "Modifier", edit_ticket_path(ticket), class: "btn btn-warning m-1" %>
           <% if current_user.admin? %>
-          <%= button_to "Supprimer", ticket_path(ticket), method: :delete, data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce ticket ?" }, class: "btn btn-danger m-1" %>
+          <%= button_to "Archiver", soft_delete_ticket_path(ticket), method: :patch, data: { turbo_confirm: "Êtes-vous sûr ?" }, class: "btn btn-danger m-1" %>
           <% end %>
         </td>
       </tr>

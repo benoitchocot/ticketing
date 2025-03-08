@@ -1,5 +1,5 @@
 <h1><%= @ticket.title %></h1>
-<p><%= @ticket.description.body %></p>
+<p><%= @ticket.description.body.to_s.html_safe %></p>
 <p>Priorité: <%= @ticket.priority.title %></p>
 <p>Statut: <%= @ticket.status.title %></p>
 <p><strong>Date de fin :</strong> <%= @ticket.end_date.present? ? l(@ticket.end_date, format: :long) : "Non définie" %></p>
