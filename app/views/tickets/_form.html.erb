@@ -22,7 +22,7 @@
 
 <% if current_user.admin? %>
   <div class="form-group">
-    <%= form.label :user_ids, 'Utilisateurs' %>
+    <%= form.label :user_ids, 'Assigner à' %>
     <%= form.collection_select :user_ids, User.all, :id, :email, { include_blank: 'Sélectionnez des utilisateurs' }, { multiple: true, class: 'form-control' } %>
   </div>
 <% end %>

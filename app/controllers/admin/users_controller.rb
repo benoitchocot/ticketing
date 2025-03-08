@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to admin_users_path, notice: 'L\'utilisateur a été mis à jour avec succès.'
     else
-      render :edit, alert: 'Une erreur est survenue lors de la mise à jour de l\'utilisateur.'
+      render :edit, status: :unprocessable_entity
     end
   end
 
