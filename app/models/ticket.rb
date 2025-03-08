@@ -5,8 +5,8 @@ class Ticket < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :priority, presence: true
-  validates :status, presence: true
+  validates :priority_id, presence: true
+  validates :status_id, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["id", "title", "description", "created_at", "updated_at", "user_id"]
