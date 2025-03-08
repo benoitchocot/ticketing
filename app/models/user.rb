@@ -26,5 +26,6 @@ class User < ApplicationRecord
   end
   # Validation pour le rôle
   validates :role, inclusion: { in: roles.keys }
+  
 end
 

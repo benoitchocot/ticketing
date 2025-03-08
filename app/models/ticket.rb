@@ -27,7 +27,7 @@ class Ticket < ApplicationRecord
     scope :archived, -> { where.not(deleted_at: nil) }
 
   def self.ransackable_attributes(auth_object = nil)
-    ["id", "title", "description", "created_at", "updated_at", "user_id"]
+    ["id", "title", "description", "created_at", "deleted_at", "updated_at", "user_id"]
   end
   
   # 🔥 Autoriser explicitement les associations pour Ransack

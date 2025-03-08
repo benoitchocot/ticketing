@@ -1,17 +1,19 @@
-<h2>Mot de passe oublié ?</h2>
+<h2>Mot de passe oublié ?</h2> 
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%# <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %> 
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%#   <div class="form-group"> %>
+<%#     <%= f.label :email %><br />
+<%#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%#   </div> %>
 
-  <div class="">
-    <%= f.submit "Envoyez moi les instructions de réinitialisation", class: 'btn btn-primary mb-2' %>
-  </div>
-<% end %>
-  <div class="form-group">
+<%#   <div class=""> %>
+<%#     <%= f.submit "Envoyez moi les instructions de réinitialisation", class: 'btn btn-primary mb-2' %> 
+<%#   </div> %>
+<%# <% end %> 
+<%#   <div class="form-group"> %>
 
-<%= render "devise/shared/links" %>
-</div>
+<%# <%= render "devise/shared/links" %> 
+<%# </div> %>
+<p> Dû à la "complexité" de mettre un serveur SMTP local par rapport à la taille de ce projet, cette option est pour le moment désactivée. </p>
+<p> Contactez l'administrateur du site pour réinitialiser votre mot de passe. </p>

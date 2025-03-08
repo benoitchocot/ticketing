@@ -16,8 +16,13 @@ class TicketsController < ApplicationController
   end
 
   def archived
-    @tickets = Ticket.archived
+    # Initialise la recherche avec Ransack
+    @q = Ticket.archived.ransack(params[:q])
+    
+    # Applique les filtres de recherche (result distinct si nécessaire)
+    @tickets = @q.result(distinct: true)
   end
+  
 
   def restore
     @ticket.restore
