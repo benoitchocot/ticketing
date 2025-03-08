@@ -12,6 +12,7 @@ module Ticketing
     config.load_defaults 8.0
     config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
     config.i18n.default_locale = :fr
+    config.active_storage.analyzers = []
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
