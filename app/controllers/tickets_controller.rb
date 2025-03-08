@@ -15,11 +15,9 @@ class TicketsController < ApplicationController
     @tickets = @q.result(distinct: true)
   end
 
-  # Action pour afficher les tickets archivés
   def archived
     @tickets = Ticket.archived
   end
-
 
   def restore
     @ticket.restore
@@ -33,7 +31,7 @@ class TicketsController < ApplicationController
       redirect_to tickets_path, alert: 'Erreur lors de l\'archivage du ticket.'
     end
   end
-  
+
   def show
     if current_user.admin? || @ticket.status.title != 'Fermé'
       # Continue avec la logique d'affichage du ticket
@@ -41,17 +39,20 @@ class TicketsController < ApplicationController
       redirect_to tickets_path, alert: "Vous ne pouvez pas voir ce ticket car il est fermé."
     end
   end
-  
+
   def new
     @ticket = Ticket.new
   end
 
   def create
+
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket créé avec succès.'
+      redirect_to @ticket, notice: "Le ticket a été créé avec succès."
     else
+      Rails.logger.error @ticket.errors.full_messages.join(", ")
+
       render :new, status: :unprocessable_entity
     end
   end
@@ -61,13 +62,17 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to @ticket, notice: 'Ticket mis à jour avec succès.'
+      # Filtrer les valeurs vides dans user_ids
+
+      if @ticket.save
+        redirect_to @ticket, notice: 'Ticket mis à jour avec succès.'
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
       render :edit, status: :unprocessable_entity
     end
   end
-
-  
 
   private
 
@@ -78,7 +83,7 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:title, :description, :priority_id, :status_id, :end_date, user_ids: [])
   end
-  
+
   def authorize_admin
     unless current_user.admin?
       redirect_to tickets_path, alert: "Accès refusé : vous n'êtes pas administrateur."
