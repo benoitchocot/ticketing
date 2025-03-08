@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
     if current_user.admin?
       @tickets = Ticket.all
     else
-      @tickets = current_user.tickets
+      @tickets = current_user.tickets.where.not(status_id: Status.find_by(title: 'Fermé').id)
     end
 
     @q = current_user.admin? ? Ticket.active.ransack(params[:q]) : current_user.tickets.active.ransack(params[:q])
@@ -34,12 +34,14 @@ class TicketsController < ApplicationController
     end
   end
   
-  
-  
-
   def show
+    if current_user.admin? || @ticket.status.title != 'Fermé'
+      # Continue avec la logique d'affichage du ticket
+    else
+      redirect_to tickets_path, alert: "Vous ne pouvez pas voir ce ticket car il est fermé."
+    end
   end
-
+  
   def new
     @ticket = Ticket.new
   end
