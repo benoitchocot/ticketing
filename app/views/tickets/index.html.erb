@@ -44,6 +44,7 @@
       <th><%= sort_link(@q, :title, 'Titre') %></th>
       <th><%= sort_link(@q, :priority_id, 'Priorité') %></th>
       <th><%= sort_link(@q, :status_id, 'Statut') %></th>
+      <th><%= sort_link(@q, :users_id, 'Utilisateurs') %></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -58,6 +59,17 @@
           <%= ticket.priority.title %>
         </span></td>
         <td><%= ticket.status.title %></td>
+        <td>
+        <% if ticket.users.any? %>
+          <ul class="list-unstyled">
+            <% ticket.users.each do |user| %>
+              <li><%= user.email %></li> <!-- Affichage de l'email ou du nom -->
+            <% end %>
+          </ul>
+        <% else %>
+          <em>Aucun utilisateur</em>
+        <% end %>
+      </td>
         <td class="d-flex">
           <%= link_to "Modifier", edit_ticket_path(ticket), class: "btn btn-warning m-1" %>
           <% if current_user.admin? %>
