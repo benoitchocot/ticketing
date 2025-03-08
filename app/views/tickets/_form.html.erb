@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+    <%= form.rich_textarea :description, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -26,6 +26,6 @@
   </div>
 
   <div class="form-group">
-    <%= form.submit 'Créer le ticket', class: 'btn btn-primary' %>
+    <%= form.submit (@ticket.new_record? ? "Créer le ticket" : "Mettre à jour le ticket"), class: 'btn btn-primary' %>
   </div>
 <% end %>

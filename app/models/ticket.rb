@@ -1,5 +1,8 @@
 class Ticket < ApplicationRecord
   has_and_belongs_to_many :users
+  has_rich_text :description
+
+
   belongs_to :priority
   belongs_to :status
 
