@@ -1,41 +1,101 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 🎫 Ticketing App
 
-Things you may want to cover:
+Application de gestion de tickets développée avec Ruby on Rails. Elle permet aux utilisateurs de créer, suivre et gérer des tickets d'incident ou de support via une interface web simple et efficace.
 
-* Ruby version
+🔗 Démo en ligne : [ticket.chocot.be](https://ticket.chocot.be)
 
-* System dependencies
+## 🚀 Fonctionnalités
 
-* Configuration
+- Création de tickets avec titre, description et statut
+- Attribution des tickets à des utilisateurs
+- Suivi de l'état des tickets (ouvert, en cours, résolu, fermé)
+- Interface utilisateur responsive
+- Authentification des utilisateurs
+- Gestion des rôles (utilisateur, administrateur)
 
-* Database creation
+## 🛠️ Technologies utilisées
 
-* Database initialization
+- **Ruby on Rails** (framework principal)
+- **PostgreSQL** (base de données)
+- **Hotwire** (Turbo + Stimulus) pour des interactions dynamiques sans JavaScript personnalisé
+- **Docker** pour le déploiement et l'environnement de développement
+- **Kamal** pour l'orchestration du déploiement
 
-* How to run the test suite
+## 📦 Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+### Prérequis
 
-* Deployment instructions
+- Ruby 3.x
+- Rails 7.x
+- SQLite3
+- Docker (optionnel mais recommandé)
 
-* ...
+### Étapes
 
-admin = User.create!(
-  email: 'admin@example.com',
-  password: 'password',
-  password_confirmation: 'password',
-  role: 'admin'
-)
-puts "Admin créé: #{admin.email}"
+1. Clonez le dépôt :
 
-# Créer des utilisateurs normaux
-5.times do |i|
-  user = User.create!(
-    email: "user#{i + 1}@example.com",
-    password: "password123",
-    password_confirmation: "password123"
-  )
-  puts "Utilisateur créé: #{user.email}"
+   ```bash
+   git clone https://github.com/benoitchocot/ticketing.git
+   cd ticketing
+   ```
+
+2. Installez les dépendances Ruby :
+
+   ```bash
+   bundle install
+   ```
+ 
+3. Configurez la base de données :
+
+   ```bash
+   rails db:setup
+   ```
+
+4. Lancez le serveur :
+
+   ```bash
+   rails server
+   ```
+
+6. Accédez à l'application sur [http://localhost:3000](http://localhost:3000)
+
+## 🤵‍♂️ Utilisateurs de test
+
+Administrateur : admin@example.com password
+
+Utilisateur :  user1@example.com password123
+
+
+## 🐳 Utilisation avec Docker
+
+Pour démarrer l'application avec Docker :
+
+```bash
+docker-compose up --build
+```
+
+Cela lancera l'application sur [http://localhost:3000](http://localhost:3000)
+
+## 🧪 Tests
+
+L'application utilise MiniTest pour les tests.
+
+Pour exécuter la suite de tests :
+
+```bash
+rails test
+```
+
+## 📂 Structure du projet
+
+- `app/` : Contient les modèles, contrôleurs et vues
+- `config/` : Fichiers de configuration de l'application
+- `db/` : Migrations et schéma de la base de données
+- `lib/tasks/` : Tâches Rake personnalisées
+- `Dockerfile` et `docker-compose.yml` : Configuration Docker
+- `erd.pdf` : Diagramme de la base de données
+
+## 📜 Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
