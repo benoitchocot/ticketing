@@ -139,4 +139,4 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'i
 
 ### Perso
 
-Pour déployer le projet sur serveur, renommer le Dockerfile en .old et Docker.prod en Dockerfile
+Pour déployer le projet sur serveur, renommer le Dockerfile en Dockerfile.old et Dockerfile.prod en Dockerfile
