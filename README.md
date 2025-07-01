@@ -17,7 +17,7 @@ Application de gestion de tickets développée avec Ruby on Rails. Elle permet a
 ## 🛠️ Technologies utilisées
 
 - **Ruby on Rails** (framework principal)
-- **PostgreSQL** (base de données)
+- **SQLite3** (base de données)
 - **Hotwire** (Turbo + Stimulus) pour des interactions dynamiques sans JavaScript personnalisé
 - **Docker** pour le déploiement et l'environnement de développement
 
