@@ -36,9 +36,15 @@ Cela lancera automatiquement le serveur sur http://localhost:3000
 
 Ensuite, il faut initialiser les fixtures de la base de données:
 
-```docker exec -it rails-app bash```
-```rails db:seed```
-```exit```
+```bash
+docker exec -it rails-app bash
+```
+```bash
+rails db:seed
+```
+```bash
+exit
+```
 
 ---
 
