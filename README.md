@@ -59,7 +59,7 @@ Utilisez les identifiants suivants pour vous connecter :
 
 ---
 
-## 📦 Installation
+## 📦 Installation sans Docker
 
 ### Prérequis
 
