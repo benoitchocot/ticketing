@@ -20,7 +20,6 @@ Application de gestion de tickets développée avec Ruby on Rails. Elle permet a
 - **PostgreSQL** (base de données)
 - **Hotwire** (Turbo + Stimulus) pour des interactions dynamiques sans JavaScript personnalisé
 - **Docker** pour le déploiement et l'environnement de développement
-- **Kamal** pour l'orchestration du déploiement
 
 ---
 
