@@ -65,7 +65,6 @@ Utilisez les identifiants suivants pour vous connecter :
 - Ruby 3.x
 - Rails 7.x
 - SQLite3
-- Docker (optionnel mais recommandé)
 
 ### Étapes
 
@@ -102,16 +101,6 @@ Administrateur : admin@example.com password
 
 Utilisateur :  user1@example.com password123
 
-
-## 🐳 Utilisation avec Docker
-
-Pour démarrer l'application avec Docker :
-
-```bash
-docker-compose up --build
-```
-
-Cela lancera l'application sur [http://localhost:3000](http://localhost:3000)
 
 ## 🧪 Tests
 
