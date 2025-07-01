@@ -136,3 +136,7 @@ rails test
 ## 📜 Licence
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
+
+### Perso
+
+Pour déployer le projet sur serveur, renommer le Dockerfile en .old et Docker.prod en Dockerfile
