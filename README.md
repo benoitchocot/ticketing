@@ -22,6 +22,38 @@ Application de gestion de tickets développée avec Ruby on Rails. Elle permet a
 - **Docker** pour le déploiement et l'environnement de développement
 - **Kamal** pour l'orchestration du déploiement
 
+---
+
+
+## 📦 Lancement avec Docker (recommandé)
+
+Pour exécuter l'application **via Docker**, assurez-vous d'avoir Docker installé, puis exécutez à la racine du projet :
+
+```bash
+docker compose up -d --build
+```
+Cela lancera automatiquement le serveur sur http://localhost:3000
+
+Ensuite, il faut initialiser les fixtures de la base de données:
+
+```bash
+docker exec -it rails-app bash
+rails db:seed
+exit```
+
+---
+
+## 🔐 Connexion à l'application
+
+Utilisez les identifiants suivants pour vous connecter :
+
+- **Email** : `admin@example.com`  
+- **Mot de passe** : `password`
+
+> ⚠️ Assurez-vous que **Docker** est bien installé sur votre machine.
+
+---
+
 ## 📦 Installation
 
 ### Prérequis
