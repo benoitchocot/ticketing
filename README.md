@@ -3,7 +3,7 @@
 
 Application de gestion de tickets développée avec Ruby on Rails. Elle permet aux utilisateurs de créer, suivre et gérer des tickets d'incident ou de support via une interface web simple et efficace.
 
-🔗 Démo en ligne : [ticket.chocot.be](https://ticket.chocot.be)
+🔗 Démo en ligne (OFFLINE): [ticket.chocot.be](https://ticket.chocot.be)
 
 ## 🚀 Fonctionnalités
 
